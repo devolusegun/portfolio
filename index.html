@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Olusegun Solomon – Portfolio</title>
+  <style>
+    :root{
+      --ink:#1f2937; /* dark gray */
+      --muted:#6b7280; /* muted text */
+      --acc:#0ea5e9;  /* accent blue */
+      --bg:#ffffff;
+      --chip:#eef2f7;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
+    a{color:var(--acc);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:960px;margin:0 auto;padding:32px 20px}
+    header{border-bottom:2px solid #e5e7eb;padding-bottom:20px;margin-bottom:28px}
+    h1{font-size:34px;line-height:1.2;margin:0 0 6px}
+    .headline{color:var(--muted);font-weight:500;margin:0 0 8px}
+    .contact{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:14px}
+    .section{margin:28px 0}
+    .section h2{font-size:20px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.08em}
+    .grid{display:grid;gap:16px}
+    @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;background:#fff}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--chip);border:1px solid #e5e7eb;color:#374151;border-radius:999px;padding:6px 10px;font-size:13px}
+    .proj{display:flex;gap:14px;align-items:flex-start}
+    .proj .dot{width:10px;height:10px;border-radius:50%;background:var(--acc);margin-top:8px;flex:0 0 auto}
+    footer{margin-top:36px;border-top:2px solid #e5e7eb;padding-top:18px;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Olusegun Solomon</h1>
+      <p class="headline">Full‑Stack Developer • WordPress/WooCommerce • API Integration & Technical Support</p>
+      <div class="contact">
+        <span>📧 <a href="mailto:12515139o@gmail.com">12515139o@gmail.com</a></span>
+        <span>🐙 <a href="https://github.com/devolusegun" target="_blank" rel="noopener">github.com/devolusegun</a></span>
+        <span>💬 Skype: @kiddosolomon</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Professional Summary</h2>
+      <div class="card">
+        <p>
+          I build secure, high‑performance web applications and e‑commerce sites. Comfortable across PHP, MySQL/MariaDB, JavaScript (React/jQuery), and WordPress/WooCommerce. I handle API integrations, payment gateways, caching/CDN, analytics, and practical technical support that keeps systems fast and stable.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Skills & Tools</h2>
+      <div class="card">
+        <div class="chips">
+          <span class="chip">PHP</span>
+          <span class="chip">JavaScript (React, jQuery)</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">WooCommerce</span>
+          <span class="chip">API Integration</span>
+          <span class="chip">MySQL / MariaDB</span>
+          <span class="chip">Stripe / PayPal</span>
+          <span class="chip">Cloudflare / CDN</span>
+          <span class="chip">Caching (LiteSpeed, W3TC, Autoptimize)</span>
+          <span class="chip">GTM & GA4</span>
+          <span class="chip">SEO & Schema (JSON‑LD, OG)</span>
+          <span class="chip">Security (SSL, HSTS, DMARC/SPF)</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Services</h2>
+      <div class="grid cols-2">
+        <div class="card"><strong>Store & Site Builds</strong><br/>WordPress/WooCommerce setups, custom themes, checkout flows, and product catalogs.</div>
+        <div class="card"><strong>Integrations</strong><br/>Payments, shipping (DHL/UPS/FedEx), marketing pixels, analytics, and third‑party APIs.</div>
+        <div class="card"><strong>Performance</strong><br/>Caching, CDN, image optimization, SQL tuning, and Core Web Vitals improvements.</div>
+        <div class="card"><strong>Support</strong><br/>Bug fixes, migrations, security hardening, and ongoing maintenance.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Selected Projects (Live)</h2>
+      <div class="card">
+        <div class="proj"><span class="dot"></span><div>
+          <a href="https://www.muntmogul.com" target="_blank" rel="noopener">muntmogul.com</a><br/>
+          Crypto‑themed investment portal: UX updates, performance tweaks, and secure flows.
+        </div></div>
+        <div class="proj"><span class="dot"></span><div>
+          <a href="https://lamifragrance.com/" target="_blank" rel="noopener">lamifragrance.com</a><br/>
+          WooCommerce store: product/catalog optimizations, checkout, and plugin integrations.
+        </div></div>
+        <div class="proj"><span class="dot"></span><div>
+          <a href="https://powersolutionmall.com/" target="_blank" rel="noopener">powersolutionmall.com</a><br/>
+          E‑commerce build & support: payments, shipping, and performance improvements.
+        </div></div>
+        <div class="proj"><span class="dot"></span><div>
+          <a href="https://loveworldbooks.org/shop/" target="_blank" rel="noopener">loveworldbooks.org/shop/</a><br/>
+          Online bookstore: WooCommerce customization and caching/CDN setup.
+        </div></div>
+        <div class="proj"><span class="dot"></span><div>
+          <a href="https://joypharmacy.com.ng" target="_blank" rel="noopener">joypharmacy.com.ng</a><br/>
+          Pharmacy storefront: product search, cart/checkout stability, and SEO basics.
+        </div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recent Highlights</h2>
+      <div class="card">
+        <ul style="margin:0 0 0 18px">
+          <li>Reduced page load times by combining CDN + caching and optimizing queries/assets.</li>
+          <li>Integrated Stripe/PayPal and improved checkout reliability and conversion tracking.</li>
+          <li>Implemented GA4 + GTM, schema, and consent tools to keep analytics accurate and compliant.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Need help with a store or web app? <strong><a href="mailto:12515139o@gmail.com">Let’s talk</a></strong>.
+    </footer>
+  </div>
+</body>
+</html>
