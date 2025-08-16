@@ -1,0 +1,88 @@
+# docker-compose.yml
+version: "3.9"
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  moodle_app: {}        # Moodle code/persistence (Bitnami persists here)
+  moodle_data: {}       # Equivalent to moodledata (served by container)
+  pg_data: {}           # PostgreSQL data
+  caddy_data: {}
+  caddy_config: {}
+
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: moodle
+      POSTGRES_USER: moodleuser
+      POSTGRES_PASSWORD: "R85kb53v2@4-yH_q.#"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks: [web]
+
+  redis:
+    image: redis:7
+    command: ["redis-server", "--appendonly", "yes"]
+    restart: unless-stopped
+    networks: [web]
+
+  moodle:
+    image: bitnami/moodle:latest
+    restart: unless-stopped
+    depends_on: [db, redis]
+    environment:
+      # ---- DB (PostgreSQL) ----
+      MOODLE_DATABASE_TYPE: pgsql
+      MOODLE_DATABASE_HOST: db
+      MOODLE_DATABASE_PORT_NUMBER: "5432"
+      MOODLE_DATABASE_NAME: moodle
+      MOODLE_DATABASE_USER: moodleuser
+      MOODLE_DATABASE_PASSWORD: "R85kb53v2@4-yH_q.#"
+
+      # ---- Initial admin (one-time, can remove after first boot) ----
+      MOODLE_USERNAME: alakoso
+      MOODLE_PASSWORD: "R85kb53v2@4-yH_q.#"
+      MOODLE_EMAIL: ktlmarketingng@gmail.com
+
+      # ---- Site basics ----
+      MOODLE_SITE_NAME: "Auraium Courses"
+      MOODLE_HOST: "lms.auraium.com"     # set your domain
+      ALLOW_EMPTY_PASSWORD: "no"
+
+      # ---- Redis (sessions/app cache; set in GUI or config.php later) ----
+      # You can pre-wire sessions via config.php; see notes below.
+
+      # ---- Optional SMTP (example) ----
+      # SMTP_HOST: smtp.gmail.com
+      # SMTP_PORT: "587"
+      # SMTP_USER: you@gmail.com
+      # SMTP_PASSWORD: "app-password"
+      # SMTP_PROTOCOL: tls
+    volumes:
+      - moodle_app:/bitnami/moodle
+      - moodle_data:/bitnami/moodledata
+    networks: [web]
+    # Expose to Caddy only (no direct host ports):
+    expose:
+      - "8080"   # HTTP
+      - "8443"   # HTTPS (unused when behind Caddy)
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [moodle]
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      # Optional: email for ACME/Let's Encrypt registration
+      ACME_AGREE: "true"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    networks: [web]
