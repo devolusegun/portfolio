@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abioye Solomon Olusegun — Developer & Systems Engineer</title>
+  <link rel="stylesheet" href="resume.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0e0e0e;
+      --surface:  #161616;
+      --border:   #2a2a2a;
+      --accent:   #00d4aa;
+      --accent2:  #3b82f6;
+      --text:     #e2e2e2;
+      --muted:    #888;
+      --mono:     'IBM Plex Mono', monospace;
+      --sans:     'IBM Plex Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── Layout ── */
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .tagline {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .contacts a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .contacts a:hover { color: var(--accent); }
+
+    /* ── Sections ── */
+    section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    /* ── About ── */
+    .about-text {
+      font-size: 15px;
+      color: #c8c8c8;
+      max-width: 620px;
+      line-height: 1.8;
+    }
+
+    /* ── Projects ── */
+    .project {
+      margin-bottom: 44px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--border);
+    }
+    .project:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .project-title {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 17px;
+      color: #fff;
+    }
+
+    .project-title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color .2s, color .2s;
+      padding-bottom: 1px;
+    }
+    .project-title a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge-live    { background: rgba(0,212,170,.12); color: var(--accent); border: 1px solid rgba(0,212,170,.25); }
+    .badge-dev     { background: rgba(59,130,246,.12); color: var(--accent2); border: 1px solid rgba(59,130,246,.25); }
+
+    .project-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.75;
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    /* ── Capabilities ── */
+    .cap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .cap-item h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .cap-item p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Stack ── */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .stack-item {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #bbb;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 2px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      header { padding: 48px 0 40px; }
+      section { padding: 36px 0; }
+      .cap-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ── HEADER ─────────────────────────────────────────────────── -->
+  <header>
+    <p class="eyebrow">Portfolio</p>
+    <h1>Abioye Solomon<br>Olusegun</h1>
+    <p class="tagline">Full-Stack Developer & IT Systems Engineer — building APIs and systems that solve real problems for real people. Open to remote roles and relocation to Germany.</p>
+    <div class="contacts">
+      <a href="mailto:12515139o@gmail.com">12515139o@gmail.com</a>
+      <a href="https://github.com/devolusegun" target="_blank">github.com/devolusegun</a>
+      <a href="https://linkedin.com/in/kidolu" target="_blank">linkedin.com/in/kidolu</a>
+      <span style="color:#555">Ibadan, Nigeria · Remote</span>
+    </div>
+  </header>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────────── -->
+  <section>
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I build secure, well-structured web systems — from REST APIs and database schemas to
+      deployment and ongoing maintenance. My backend work spans PHP/Laravel, Python/FastAPI,
+      and PostgreSQL/MySQL. On the infrastructure side I've supported platforms serving
+      tens of millions of users, managed cloud deployments on AWS and Azure, and worked
+      within ITIL frameworks at enterprise scale. I care most about code that is readable,
+      maintainable, and genuinely useful.
+    </p>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────────────────────────── -->
+  <section>
+    <p class="section-label">Selected Projects</p>
+
+    <!-- ClientFlow API -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://github.com/devolusegun/clientflow-api" target="_blank">ClientFlow API</a>
+        </p>
+        <span class="badge badge-dev">In Development</span>
+      </div>
+      <p class="project-sub">Laravel 11 · MySQL · Sanctum · REST API</p>
+      <p class="project-desc">
+        A full REST API for freelancers and agencies to manage clients, create invoices,
+        track payment status, and monitor revenue. Built with Laravel 11 and MySQL, using
+        Eloquent relationships, Form Request validation, and Sanctum token authentication.
+        Features a complete invoice lifecycle (draft → sent → paid / overdue / cancelled),
+        automatic invoice number generation, tax and discount calculations, and a dashboard
+        summary endpoint with monthly revenue breakdowns. Line item totals are auto-calculated
+        via Eloquent model observers — no manual total management needed. React frontend
+        connects to the API via REST.
+      </p>
+      <div class="project-tech">
+        <span class="tag">Laravel 11</span>
+        <span class="tag">PHP 8.2</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Sanctum</span>
+        <span class="tag">Eloquent ORM</span>
+        <span class="tag">REST API</span>
+        <span class="tag">React</span>
+      </div>
+    </div>
+
+    <!-- multibooker -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://github.com/devolusegun/multibooker" target="_blank">multibooker</a>
+        </p>
+        <span class="badge badge-dev">In Development</span>
+      </div>
+      <p class="project-sub">FastAPI · PostgreSQL · SQLAlchemy · JWT</p>
+      <p class="project-desc">
+        A FastAPI backend that converts sports betting slip codes across platforms —
+        paste a Stake.com code and get a valid Bet9ja, Sportybet, or 1xBet code in return.
+        The core challenge is cross-platform fixture identity: each bookmaker assigns its own
+        internal IDs to the same real-world match. The event matching engine resolves this
+        using team name normalisation and kick-off time alignment. Built with FastAPI,
+        PostgreSQL, SQLAlchemy ORM, Alembic migrations, Pydantic schemas, and stateless
+        JWT authentication. Configured for Render deployment.
+      </p>
+      <div class="project-tech">
+        <span class="tag">FastAPI</span>
+        <span class="tag">Python</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Alembic</span>
+        <span class="tag">JWT</span>
+        <span class="tag">Pydantic</span>
+      </div>
+    </div>
+
+    <!-- muntmogul -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://www.muntmogul.com" target="_blank">muntmogul</a>
+        </p>
+        <span class="badge badge-live">Live</span>
+      </div>
+      <p class="project-sub">PHP · MySQL · JavaScript · CoinPaprika API</p>
+      <p class="project-desc">
+        A full-stack cryptocurrency investment platform with tiered investment plans,
+        multi-coin wallet management (BTC, ETH, LTC, DOGE), and deposit/withdrawal
+        approval workflows. Separate admin and user dashboards — admin routes are
+        isolated at the application level to prevent privilege escalation. Security
+        hardened throughout: bcrypt password hashing, CSRF token validation, prepared
+        statements for all database queries, and role-based access control. Live crypto
+        prices fetched via CoinPaprika API with fallback handling for API downtime.
+      </p>
+      <div class="project-tech">
+        <span class="tag">PHP 7+</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">CoinPaprika API</span>
+        <span class="tag">RBAC</span>
+        <span class="tag">CSRF Protection</span>
+      </div>
+    </div>
+
+    <!-- sysops-toolkit -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://github.com/devolusegun/sysops-toolkit" target="_blank">sysops-toolkit</a>
+        </p>
+        <span class="badge badge-live">Open Source</span>
+      </div>
+      <p class="project-sub">Python · psutil · CLI · JSON reporting</p>
+      <p class="project-desc">
+        A Python toolkit for IT support and systems engineers: server uptime monitoring
+        via ICMP ping and TCP port checks, API endpoint health checks with SSL certificate
+        expiry validation, disk/CPU/memory monitoring with configurable warning and critical
+        thresholds, Apache/Nginx/app log parsing with error detection, and a consolidated
+        HTML report generator. Built from real operational experience supporting
+        infrastructure at MTN Nigeria (74M subscribers) and DonateWater EU project
+        (125,000+ communities). Uses only Python standard library except psutil — no
+        heavy dependencies.
+      </p>
+      <div class="project-tech">
+        <span class="tag">Python</span>
+        <span class="tag">psutil</span>
+        <span class="tag">CLI</span>
+        <span class="tag">JSON</span>
+        <span class="tag">HTML reports</span>
+        <span class="tag">Cron-ready</span>
+      </div>
+    </div>
+
+    <!-- DonateWater -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://donatewater.org" target="_blank">DonateWater Platform</a>
+        </p>
+        <span class="badge badge-live">Live</span>
+      </div>
+      <p class="project-sub">PHP · MySQL · Apache · EU-Funded Project · 2023–Present</p>
+      <p class="project-desc">
+        Designed, built, and maintains the official DonateWater web platform — an
+        EU-funded initiative addressing water inaccessibility across Nigeria. The platform
+        serves thousands of monthly visitors, supports 500+ active volunteer participants,
+        and manages a MySQL database storing crowdsourced water data from 10,000+ reported
+        sources across 125,000+ registered communities. Responsibilities include full-stack
+        development, server monitoring, database optimisation, SSL and hosting management,
+        mobile app integration, and low-bandwidth performance tuning for users in rural areas.
+      </p>
+      <div class="project-tech">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Apache/cPanel</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Mobile Integration</span>
+      </div>
+    </div>
+
+    <!-- fion -->
+    <div class="project">
+      <div class="project-header">
+        <p class="project-title">
+          <a href="https://www.fion.ng" target="_blank">fion.ng</a>
+        </p>
+        <span class="badge badge-live">Live</span>
+      </div>
+      <p class="project-sub">PHP · MySQL · JavaScript</p>
+      <p class="project-desc">
+        National Smart Ideation Platform — a civic engagement platform connecting the
+        Nigerian public with national development initiatives. Built and maintained
+        full-stack, with focus on performance, accessibility, and reliability at scale.
+      </p>
+      <div class="project-tech">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">JavaScript</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── CAPABILITIES ───────────────────────────────────────────── -->
+  <section>
+    <p class="section-label">Capabilities</p>
+    <div class="cap-grid">
+      <div class="cap-item">
+        <h3>Build</h3>
+        <p>REST APIs, full-stack web apps, Laravel backends, FastAPI services, database design, Eloquent ORM, migrations.</p>
+      </div>
+      <div class="cap-item">
+        <h3>Support</h3>
+        <p>Server monitoring, incident management, root cause analysis, ITIL, SLA management, QMS platforms.</p>
+      </div>
+      <div class="cap-item">
+        <h3>Infrastructure</h3>
+        <p>AWS (EC2, S3), Azure, Apache/cPanel, SSL management, DNS, disaster recovery, patch management.</p>
+      </div>
+      <div class="cap-item">
+        <h3>Secure</h3>
+        <p>CSRF protection, SQL injection prevention, RBAC, GDPR, ISO 27001 awareness, session auth, bcrypt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STACK ──────────────────────────────────────────────────── -->
+  <section>
+    <p class="section-label">Stack</p>
+    <div class="stack-grid">
+      <div class="stack-item">PHP 8 / Laravel 11</div>
+      <div class="stack-item">Python / FastAPI</div>
+      <div class="stack-item">JavaScript (ES6+)</div>
+      <div class="stack-item">React</div>
+      <div class="stack-item">TypeScript</div>
+      <div class="stack-item">Node.js</div>
+      <div class="stack-item">MySQL / MariaDB</div>
+      <div class="stack-item">PostgreSQL</div>
+      <div class="stack-item">Redis</div>
+      <div class="stack-item">SQLAlchemy / Eloquent</div>
+      <div class="stack-item">Alembic / Migrations</div>
+      <div class="stack-item">Docker</div>
+      <div class="stack-item">AWS (EC2, S3, CloudFront)</div>
+      <div class="stack-item">Azure Cloud</div>
+      <div class="stack-item">CI/CD Pipelines</div>
+      <div class="stack-item">Apache / Nginx</div>
+      <div class="stack-item">Linux / Windows Server</div>
+      <div class="stack-item">JWT / OAuth2 / Sanctum</div>
+      <div class="stack-item">REST API Design</div>
+      <div class="stack-item">Git / GitHub</div>
+      <div class="stack-item">Jira / Zendesk</div>
+      <div class="stack-item">ITIL Framework</div>
+      <div class="stack-item">GDPR / ISO 27001</div>
+      <div class="stack-item">Swagger / OpenAPI</div>
+      <div class="stack-item">PHPUnit / Pytest</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <p>Available for remote work · Open to relocation to Germany</p>
+    <p><a href="mailto:12515139o@gmail.com">Get in touch →</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
